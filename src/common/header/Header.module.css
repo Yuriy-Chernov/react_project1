@@ -1,0 +1,155 @@
+.header {
+  --primary: #E55A63;
+  --text-muted: #6B6B6B;
+  --border: #E0E0E0;
+  --search-bg: rgba(0, 0, 0, 0.12);
+
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 12px 40px;
+  background-color: var(--primary);
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo svg {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+.search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+  max-width: 420px;
+  min-width: 180px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background-color: var(--search-bg);
+  cursor: text;
+}
+
+.searchIcon {
+  flex-shrink: 0;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.searchInput::-webkit-search-cancel-button {
+  filter: brightness(0) invert(1);
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.navLink:hover {
+  opacity: 0.85;
+}
+
+.actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 18px;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.action:hover {
+  opacity: 0.85;
+}
+
+.badge {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .topBar {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 12px 20px;
+  }
+
+  .search {
+    order: 3;
+    max-width: none;
+    width: 100%;
+  }
+
+  .nav {
+    margin-left: 0;
+  }
+
+  .navList {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    display: none;
+  }
+}

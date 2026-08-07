@@ -1,0 +1,71 @@
+.cardActions,
+.pageActions {
+  --primary: #e55a63;
+  --border: #e0e0e0;
+  --text: #1a1a1a;
+
+  display: flex;
+  gap: 8px;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+.cardActions {
+  margin-top: 4px;
+}
+
+.pageActions {
+  margin-top: 16px;
+  gap: 12px;
+}
+
+.wishlist,
+.wishlistActive,
+.cart {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.wishlist {
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+}
+
+.wishlist:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.wishlistActive {
+  border: 1px solid var(--primary);
+  background: #fff5f6;
+  color: var(--primary);
+}
+
+.cart {
+  border: none;
+  background: var(--primary);
+  color: #fff;
+}
+
+.cart:hover {
+  filter: brightness(0.95);
+}
+
+.pageActions .wishlist,
+.pageActions .wishlistActive,
+.pageActions .cart {
+  flex: 0 1 auto;
+  min-width: 140px;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+}

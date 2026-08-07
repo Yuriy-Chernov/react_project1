@@ -54,6 +54,10 @@
     overflow-x: auto;
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .categoryList::-webkit-scrollbar {
+    display: none;
   }
 
   .categoryBtn {

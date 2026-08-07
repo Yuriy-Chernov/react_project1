@@ -2,12 +2,12 @@ import { baseApi } from '../../shared/api/baseApi';
 
 import type { AuthUser } from './authSlice';
 
-export type LoginRequest = {
+type LoginRequest = {
   username: string;
   password: string;
 };
 
-export type LoginResponse = AuthUser & {
+type LoginResponse = AuthUser & {
   accessToken: string;
   refreshToken: string;
   gender: string;

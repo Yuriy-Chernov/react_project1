@@ -62,9 +62,7 @@ export const LoginPage = () => {
     <section className={styles.page}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <h1 className={styles.title}>Вход</h1>
-        <p className={styles.hint}>
-          DummyJSON: emilys / emilyspass
-        </p>
+      
 
         <label className={styles.field}>
           <span>Username</span>

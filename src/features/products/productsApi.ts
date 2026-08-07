@@ -20,6 +20,13 @@ export const productsApi = baseApi.injectEndpoints({
             ]
           : [{ type: 'Product', id: 'LIST' }],
     }),
+    searchProducts: build.query<ProductsResponse, { q: string; limit?: number }>({
+      query: ({ q, limit = 30 }) => ({
+        url: 'products/search',
+        params: { q, limit },
+      }),
+      providesTags: [{ type: 'Product', id: 'LIST' }],
+    }),
     getProductById: build.query<Product, string | number>({
       query: (id) => `products/${id}`,
       providesTags: (_result, _error, id) => [{ type: 'Product', id }],
@@ -27,4 +34,4 @@ export const productsApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetProductsQuery, useGetProductByIdQuery } = productsApi;
+export const { useGetProductsQuery, useGetProductByIdQuery, useSearchProductsQuery } = productsApi;

@@ -1,12 +1,8 @@
 .cardActions,
 .pageActions {
-  --primary: #e55a63;
-  --border: #e0e0e0;
-  --text: #1a1a1a;
-
   display: flex;
   gap: 8px;
-  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  font-family: var(--font-family);
 }
 
 .cardActions {
@@ -29,32 +25,32 @@
   font-weight: 600;
   cursor: pointer;
   transition:
-    background-color 0.15s ease,
-    color 0.15s ease,
-    border-color 0.15s ease;
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .wishlist {
-  border: 1px solid var(--border);
-  background: #fff;
-  color: var(--text);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 
 .wishlist:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .wishlistActive {
-  border: 1px solid var(--primary);
-  background: #fff5f6;
-  color: var(--primary);
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
 }
 
 .cart {
   border: none;
-  background: var(--primary);
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 .cart:hover {

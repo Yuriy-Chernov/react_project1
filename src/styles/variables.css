@@ -1,0 +1,23 @@
+:root {
+    /* colors */
+    --color-primary: #e55a63;
+    --color-primary-soft: #fff5f6;
+    --color-text: #1a1a1a;
+    --color-muted: #6b6b6b;
+    --color-border: #e0e0e0;
+    --color-surface: #fff;
+    --color-page-bg: #f4f4f4;
+    --color-on-primary: #fff;
+    --color-error: #c0392b;
+    --color-on-primary-muted: #ffffffbf;
+
+    /* fonts */
+    --font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    
+    /* layout */
+    --page-padding: 32px 40px 48px;
+    --page-padding-mobile: 24px 16px 40px;
+  
+    /* motion */
+    --transition-fast: 0.15s ease;
+  }

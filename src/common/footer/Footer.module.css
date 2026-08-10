@@ -1,9 +1,7 @@
 .footer {
-  --primary: #e55a63;
-
-  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-  background-color: var(--primary);
-  color: #fff;
+  font-family: var(--font-family);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
 }
 
 .inner {

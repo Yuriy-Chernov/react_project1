@@ -1,50 +1,45 @@
 .page {
-  --primary: #e55a63;
-  --border: #e0e0e0;
-  --text: #1a1a1a;
-  --muted: #6b6b6b;
-
-  padding: 32px 40px 48px;
-  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  padding: var(--page-padding);
+  font-family: var(--font-family);
 }
 
 .tabs {
   display: flex;
   gap: 12px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .tab,
 .tabActive {
   padding: 10px 22px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 999px;
-  background: #fff;
-  color: var(--muted);
+  background: var(--color-surface);
+  color: var(--color-muted);
   font: inherit;
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
   transition:
-    border-color 0.15s ease,
-    color 0.15s ease,
-    background-color 0.15s ease;
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background-color var(--transition-fast);
 }
 
 .tab:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .tabActive {
-  border-color: var(--primary);
-  background: #fff5f6;
-  color: var(--primary);
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
 }
 
 .empty {
   margin: 0;
-  color: var(--muted);
+  color: var(--color-muted);
 }
 
 .list {
@@ -62,7 +57,7 @@
   justify-content: space-between;
   gap: 20px;
   padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .product {
@@ -75,7 +70,7 @@
 }
 
 .product:hover .title {
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 .thumb {
@@ -83,7 +78,7 @@
   height: 72px;
   flex-shrink: 0;
   object-fit: cover;
-  background: #f5f5f5;
+  background: var(--color-page-bg);
 }
 
 .info {
@@ -96,14 +91,14 @@
 .title {
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--text);
-  transition: color 0.15s ease;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
 }
 
 .price {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--color-text);
 }
 
 .controls {
@@ -122,10 +117,10 @@
 .quantity button {
   width: 32px;
   height: 32px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: #fff;
-  color: var(--text);
+  background: var(--color-surface);
+  color: var(--color-text);
   font: inherit;
   font-size: 1.1rem;
   line-height: 1;
@@ -133,8 +128,8 @@
 }
 
 .quantity button:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .quantity span {
@@ -147,21 +142,21 @@
   padding: 0;
   border: none;
   background: none;
-  color: var(--muted);
+  color: var(--color-muted);
   font: inherit;
   font-size: 0.875rem;
   cursor: pointer;
 }
 
 .remove:hover {
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 @media (max-width: 640px) {
   .page {
-    padding: 24px 16px 40px;
+    padding: var(--page-padding-mobile);
   }
-
+  
   .row {
     flex-direction: column;
     align-items: stretch;

@@ -2,12 +2,14 @@
   "name": "my-app",
   "version": "1.0.0",
   "main": "main.tsx",
+  "type": "module",
   "scripts": {
     "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write .",
+    "lint": "eslint .",
     "prepare": "husky"
   },
   "keywords": [],

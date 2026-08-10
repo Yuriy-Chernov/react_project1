@@ -17,8 +17,8 @@ export const LoginPage = () => {
   const [password, setPassword] = useState('emilyspass');
 
   const from =
-    (location.state as { from?: { pathname: string } } | null)?.from?.pathname ??
-    '/';
+    (location.state as { from?: { pathname: string } } | null)?.from
+      ?.pathname ?? '/';
 
   if (isAuthenticated) {
     return <Navigate to={from} replace />;
@@ -47,22 +47,21 @@ export const LoginPage = () => {
 
       navigate(from, { replace: true });
     } catch {
-      // ошибка уже в error от RTK Query
+      // error is already in error from RTK Query
     }
   };
 
   const errorMessage =
     error && 'data' in error
-      ? String((error.data as { message?: string })?.message ?? 'Ошибка входа')
+      ? String((error.data as { message?: string })?.message ?? 'Login failed')
       : error
-        ? 'Ошибка входа'
+        ? 'Login failed'
         : null;
 
   return (
     <section className={styles.page}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <h1 className={styles.title}>Вход</h1>
-      
+        <h1 className={styles.title}>Signing in…</h1>
 
         <label className={styles.field}>
           <span>Username</span>
@@ -91,7 +90,7 @@ export const LoginPage = () => {
         {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
 
         <button className={styles.submit} type="submit" disabled={isLoading}>
-          {isLoading ? 'Вход…' : 'Войти'}
+          {isLoading ? 'Signing in…' : 'Sign in'}
         </button>
       </form>
     </section>

@@ -14,7 +14,7 @@ export const HomePage = () => {
     return (
       <section className={styles.page}>
         <CategoriesNav />
-        <p className={styles.status}>Загрузка товаров…</p>
+        <p className={styles.status}>Loading products…</p>
       </section>
     );
   }

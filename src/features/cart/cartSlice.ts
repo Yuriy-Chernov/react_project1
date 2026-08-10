@@ -3,7 +3,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { loadFromStorage, saveToStorage } from '../../shared/lib/localStorage';
 import type { CatalogItem } from '../catalog/types';
 
-export type CartItem = CatalogItem & {
+type CartItem = CatalogItem & {
   quantity: number;
 };
 

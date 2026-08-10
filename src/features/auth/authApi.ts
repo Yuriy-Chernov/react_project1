@@ -13,7 +13,7 @@ type LoginResponse = AuthUser & {
   gender: string;
 };
 
-export const authApi = baseApi.injectEndpoints({
+const authApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     login: build.mutation<LoginResponse, LoginRequest>({
       query: (body) => ({

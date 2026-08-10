@@ -2,7 +2,7 @@ import { baseApi } from '../../shared/api/baseApi';
 
 import type { Product, ProductsResponse } from './types';
 
-export const productsApi = baseApi.injectEndpoints({
+const productsApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getProducts: build.query<ProductsResponse, { limit?: number; skip?: number } | void>({
       query: (params) => ({

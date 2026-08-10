@@ -6,10 +6,12 @@ type AuthSliceState = {
   };
 };
 
+const baseUrl = process.env.API_BASE_URL || 'https://dummyjson.com/';
+
 export const baseApi = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://dummyjson.com/',
+    baseUrl: baseUrl,
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as AuthSliceState).auth.token;
 

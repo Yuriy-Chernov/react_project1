@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { logout } from '../../features/auth/authSlice';
@@ -15,12 +15,45 @@ import {
 } from '../icons';
 import styles from './Header.module.css';
 
+const SEARCH_DEBOUNCE_MS = 400;
+
 export const Header = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const cartCount = useAppSelector(selectCartCount);
+  const [searchParams] = useSearchParams();
   const wishlistCount = useAppSelector(selectWishlistCount);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const urlQ = searchParams.get('q') ?? '';
+  const [searchValue, setSearchValue] = useState(urlQ);
+  const [prevUrlQ, setPrevUrlQ] = useState(urlQ);
+
+  if (urlQ !== prevUrlQ) {
+    setPrevUrlQ(urlQ);
+    setSearchValue(urlQ);
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const trimmed = searchValue.trim();
+      const currentQ = urlQ;
+
+      if (trimmed === currentQ) {
+        return;
+      }
+
+      if (trimmed) {
+        navigate(`/?q=${encodeURIComponent(trimmed)}`);
+        return;
+      }
+
+      if (currentQ) {
+        navigate('/');
+      }
+    }, SEARCH_DEBOUNCE_MS);
+
+    return () => clearTimeout(timer);
+  }, [searchValue, navigate, urlQ]);
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -44,6 +77,8 @@ export const Header = () => {
             type="search"
             placeholder="Search"
             aria-label="Search"
+            value={searchValue}
+            onChange={(event) => setSearchValue(event.target.value)}
           />
         </label>
 
@@ -65,12 +100,20 @@ export const Header = () => {
           <nav className={styles.nav} aria-label="Main">
             <ul className={styles.navList}>
               <li>
-                <Link to="/about" className={styles.navLink} onClick={closeMenu}>
+                <Link
+                  to="/about"
+                  className={styles.navLink}
+                  onClick={closeMenu}
+                >
                   About us
                 </Link>
               </li>
               <li>
-                <Link to="/shops" className={styles.navLink} onClick={closeMenu}>
+                <Link
+                  to="/shops"
+                  className={styles.navLink}
+                  onClick={closeMenu}
+                >
                   All shops
                 </Link>
               </li>

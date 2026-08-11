@@ -1,0 +1,61 @@
+.fab {
+  font-family: var(--font-family);
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    box-shadow var(--transition-fast);
+}
+
+.fabVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.fab:hover {
+  box-shadow: 0 6px 20px rgb(0 0 0 / 24%);
+}
+
+.fab:active {
+  transform: translateY(0) scale(0.96);
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .fab {
+    right: 16px;
+    bottom: 16px;
+  }
+}

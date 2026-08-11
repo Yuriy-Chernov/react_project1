@@ -1,3 +1,10 @@
-export { Icon } from './Icon';
-export { ICON_NAMES, icons } from '../../assets/icons/icons';
-export type { IconName } from '../../assets/icons/icons';
+export {
+  CartIcon,
+  HeartIcon,
+  LogoIcon,
+  MenuIcon,
+  SearchIcon,
+  UserIcon,
+} from '../../assets/icons';
+export type { SvgIconProps } from '../../assets/icons';
+export { IconsPage } from './IconsPage';

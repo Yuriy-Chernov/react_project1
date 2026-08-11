@@ -24,6 +24,12 @@ const CartWishlistPage = lazy(() =>
     default: m.CartWishlistPage,
   })),
 );
+const IconsPage = lazy(() =>
+  import('../common/icons/IconsPage').then((m) => ({
+    default: m.IconsPage,
+  })),
+);
+
 
 export const router = createBrowserRouter([
   {
@@ -53,8 +59,13 @@ export const router = createBrowserRouter([
             path: 'wishlist',
             element: <CartWishlistPage />,
           },
+          {
+            path: 'icons',
+            element: <IconsPage />,
+          },
         ],
       },
+
       {
         path: '*',
         element: <Navigate to="/" replace />,

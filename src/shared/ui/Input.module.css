@@ -1,0 +1,22 @@
+.input {
+  font: inherit;
+}
+
+.default {
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.default:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.ghost {
+  border: none;
+  outline: none;
+  background: transparent;
+}

@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 
+import { PageFallback } from "../../shared/ui";
 import { ProductActions } from "../catalog/ProductActions";
 import { useGetProductByIdQuery } from "./productsApi";
 import styles from "./ProductPage.module.css";
@@ -18,7 +19,7 @@ export const ProductPage = () => {
   }
 
   if (isLoading) {
-    return <p className={styles.status}>Loading…</p>;
+    return <PageFallback padded />;
   }
 
   if (isError || !product) {
@@ -58,15 +59,7 @@ export const ProductPage = () => {
             Rating: {product.rating} · In stock: {product.stock}
           </p>
           <p className={styles.description}>{product.description}</p>
-          <ProductActions
-            variant="page"
-            product={{
-              id: product.id,
-              title: product.title,
-              price: product.price,
-              thumbnail: product.thumbnail,
-            }}
-          />
+          <ProductActions variant="page" product={product} />
         </div>
       </div>
     </article>

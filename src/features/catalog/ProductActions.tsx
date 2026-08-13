@@ -1,10 +1,8 @@
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { Button } from '../../shared/ui';
 import { addToCart, selectIsInCart } from '../cart/cartSlice';
 import type { CatalogItem } from '../catalog/types';
-import {
-  selectIsInWishlist,
-  toggleWishlist,
-} from '../wishlist/wishlistSlice';
+import { selectIsInWishlist, toggleWishlist } from '../wishlist/wishlistSlice';
 import styles from './ProductActions.module.css';
 
 type ProductActionsProps = {
@@ -21,23 +19,24 @@ export const ProductActions = ({
   const inWishlist = useAppSelector(selectIsInWishlist(product.id));
 
   return (
-    <div className={variant === 'page' ? styles.pageActions : styles.cardActions}>
-      <button
-        type="button"
-        className={inWishlist ? styles.wishlistActive : styles.wishlist}
+    <div
+      className={variant === 'page' ? styles.pageActions : styles.cardActions}
+    >
+      <Button
+        variant="secondary"
+        className={styles.action}
         aria-pressed={inWishlist}
         aria-label={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
         onClick={() => dispatch(toggleWishlist(product))}
       >
         {inWishlist ? 'In Wishlist' : 'Wishlist'}
-      </button>
-      <button
-        type="button"
-        className={styles.cart}
+      </Button>
+      <Button
+        className={styles.action}
         onClick={() => dispatch(addToCart(product))}
       >
         {inCart ? 'Add again' : 'Add to cart'}
-      </button>
+      </Button>
     </div>
   );
 };

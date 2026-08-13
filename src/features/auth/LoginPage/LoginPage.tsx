@@ -13,8 +13,8 @@ export const LoginPage = () => {
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
   const [login, { isLoading, error }] = useLoginMutation();
 
-  const [username, setUsername] = useState('emilys');
-  const [password, setPassword] = useState('emilyspass');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const from =
     (location.state as { from?: { pathname: string } } | null)?.from

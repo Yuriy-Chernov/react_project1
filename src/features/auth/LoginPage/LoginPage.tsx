@@ -2,6 +2,7 @@ import { useState, type SubmitEvent } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { Button, Input } from '../../../shared/ui';
 import { useLoginMutation } from '../authApi';
 import { selectIsAuthenticated, setCredentials } from '../authSlice';
 import styles from './LoginPage.module.css';
@@ -13,8 +14,8 @@ export const LoginPage = () => {
   const isAuthenticated = useAppSelector(selectIsAuthenticated);
   const [login, { isLoading, error }] = useLoginMutation();
 
-  const [username, setUsername] = useState('emilys');
-  const [password, setPassword] = useState('emilyspass');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const from =
     (location.state as { from?: { pathname: string } } | null)?.from
@@ -65,7 +66,7 @@ export const LoginPage = () => {
 
         <label className={styles.field}>
           <span>Username</span>
-          <input
+          <Input
             type="text"
             name="username"
             autoComplete="username"
@@ -77,7 +78,7 @@ export const LoginPage = () => {
 
         <label className={styles.field}>
           <span>Password</span>
-          <input
+          <Input
             type="password"
             name="password"
             autoComplete="current-password"
@@ -89,9 +90,9 @@ export const LoginPage = () => {
 
         {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
 
-        <button className={styles.submit} type="submit" disabled={isLoading}>
+        <Button className={styles.submit} type="submit" disabled={isLoading}>
           {isLoading ? 'Signing in…' : 'Sign in'}
-        </button>
+        </Button>
       </form>
     </section>
   );

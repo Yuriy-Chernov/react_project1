@@ -47,11 +47,7 @@
 .searchInput {
   flex: 1;
   min-width: 0;
-  border: none;
-  outline: none;
-  background: transparent;
   color: var(--color-on-primary);
-  font: inherit;
   font-size: 14px;
 }
 
@@ -129,12 +125,6 @@
 
 .action:hover {
   opacity: 0.85;
-}
-
-.badge {
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1;
 }
 
 @media (max-width: 900px) {

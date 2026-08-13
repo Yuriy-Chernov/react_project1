@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { logout } from '../../features/auth/authSlice';
 import { selectCartCount } from '../../features/cart/cartSlice';
 import { selectWishlistCount } from '../../features/wishlist/wishlistSlice';
+import { Badge, Input } from '../../shared/ui';
 import {
   CartIcon,
   HeartIcon,
@@ -72,8 +73,9 @@ export const Header = () => {
 
         <label className={styles.search}>
           <SearchIcon size={20} className={styles.searchIcon} />
-          <input
+          <Input
             className={styles.searchInput}
+            variant="ghost"
             type="search"
             placeholder="Search"
             aria-label="Search"
@@ -137,7 +139,7 @@ export const Header = () => {
               onClick={closeMenu}
             >
               <HeartIcon size={22} />
-              <span className={styles.badge}>{wishlistCount}</span>
+              <Badge count={wishlistCount} />
             </Link>
             <Link
               to="/cart"
@@ -146,7 +148,7 @@ export const Header = () => {
               onClick={closeMenu}
             >
               <CartIcon size={22} />
-              <span className={styles.badge}>{cartCount}</span>
+              <Badge count={cartCount} />
             </Link>
             <button
               type="button"

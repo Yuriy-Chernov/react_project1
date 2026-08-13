@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 
+import { PageFallback } from '../../shared/ui';
 import { ProductActions } from '../catalog/ProductActions';
 import { CategoriesNav } from './CategoriesNav';
 import { FloatingCartButton } from './FloatingCartButton';
@@ -21,7 +22,7 @@ export const HomePage = () => {
       <>
         <section className={styles.page}>
           <CategoriesNav />
-          <p className={styles.status}>Loading products…</p>
+          <PageFallback message="Loading products…" />
         </section>
         <FloatingCartButton />
       </>
@@ -84,14 +85,7 @@ export const HomePage = () => {
                     <p className={styles.price}>${product.price}</p>
                   </div>
                 </Link>
-                <ProductActions
-                  product={{
-                    id: product.id,
-                    title: product.title,
-                    price: product.price,
-                    thumbnail: product.thumbnail,
-                  }}
-                />
+                <ProductActions product={product} />
               </li>
             ))}
           </ul>

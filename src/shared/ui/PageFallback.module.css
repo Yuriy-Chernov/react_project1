@@ -1,0 +1,9 @@
+.fallback {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--color-muted);
+}
+
+.padded {
+  padding: var(--page-padding);
+}

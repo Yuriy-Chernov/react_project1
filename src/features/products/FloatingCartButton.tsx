@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { useAppSelector } from '../../app/hooks';
 import { CartIcon } from '../../common/icons';
+import { Badge } from '../../shared/ui';
 import { selectCartCount } from '../cart/cartSlice';
 import styles from './FloatingCartButton.module.css';
 
@@ -32,7 +33,7 @@ export const FloatingCartButton = () => {
       tabIndex={isVisible ? 0 : -1}
     >
       <CartIcon size={24} />
-      <span className={styles.badge}>{cartCount}</span>
+      <Badge count={cartCount} variant="overlay" />
     </Link>
   );
 };

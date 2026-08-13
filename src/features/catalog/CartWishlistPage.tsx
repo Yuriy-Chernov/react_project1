@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { Button } from '../../shared/ui';
 import {
   addToCart,
   clearCart,
@@ -89,38 +90,30 @@ export const CartWishlistPage = () => {
 
                   <div className={styles.controls}>
                     <div className={styles.quantity}>
-                      <button
-                        type="button"
+                      <Button
+                        variant="secondary"
+                        className={styles.quantityBtn}
                         aria-label="Decrease quantity"
                         onClick={() => dispatch(decreaseQuantity(item.id))}
                       >
                         −
-                      </button>
+                      </Button>
                       <span>{item.quantity}</span>
-                      <button
-                        type="button"
+                      <Button
+                        variant="secondary"
+                        className={styles.quantityBtn}
                         aria-label="Increase quantity"
-                        onClick={() =>
-                          dispatch(
-                            addToCart({
-                              id: item.id,
-                              title: item.title,
-                              price: item.price,
-                              thumbnail: item.thumbnail,
-                            }),
-                          )
-                        }
+                        onClick={() => dispatch(addToCart(item))}
                       >
                         +
-                      </button>
+                      </Button>
                     </div>
-                    <button
-                      type="button"
-                      className={styles.remove}
+                    <Button
+                      variant="ghost"
                       onClick={() => dispatch(removeFromCart(item.id))}
                     >
                       Remove
-                    </button>
+                    </Button>
                   </div>
                 </li>
               ))}
@@ -130,13 +123,9 @@ export const CartWishlistPage = () => {
               <p className={styles.total}>
                 Total: <span>${cartTotal.toFixed(2)}</span>
               </p>
-              <button
-                type="button"
-                className={styles.buy}
-                onClick={handleBuy}
-              >
+              <Button className={styles.buy} onClick={handleBuy}>
                 Buy
-              </button>
+              </Button>
             </div>
           </>
         )
@@ -158,13 +147,12 @@ export const CartWishlistPage = () => {
                 </div>
               </Link>
 
-              <button
-                type="button"
-                className={styles.remove}
+              <Button
+                variant="ghost"
                 onClick={() => dispatch(removeFromWishlist(item.id))}
               >
                 Remove
-              </button>
+              </Button>
             </li>
           ))}
         </ul>
